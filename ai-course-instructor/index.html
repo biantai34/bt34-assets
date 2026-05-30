@@ -219,7 +219,7 @@
 
     .plan {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
       gap: 14px;
     }
 
@@ -307,7 +307,7 @@
     <div class="wrap">
       <p class="eyebrow">AI 課程講師準備路線</p>
       <h1>先拿免費國際 Badge，再補能教課的實作感</h1>
-      <p>這份路線適合想快速建立 AI 課程講師可信度的人。重點不是一開始就衝正式雲端證照，而是先累積 Google、IBM、AWS、NVIDIA 這些國際平台看得懂的學習證明。</p>
+      <p>這份路線適合想快速建立 AI 課程講師可信度的人。重點不是一開始就衝正式雲端證照，而是先累積 Google、IBM、阿里云、AWS、NVIDIA 這些平台看得懂的學習證明，再補上 Kimi、Qwen、DeepSeek、扣子、Manus 的實作能力。</p>
       <div class="hero-actions">
         <a class="btn" href="#courses">看推薦順序</a>
         <a class="btn secondary" href="#plan">看四週計畫</a>
@@ -320,7 +320,7 @@
       <div class="summary" aria-label="重點摘要">
         <div class="metric">
           <strong>2-3 週</strong>
-          <span>可以先拿到一組能展示的 Google + IBM 證明</span>
+          <span>可以先拿到一組能展示的 Google + IBM + 阿里云證明</span>
         </div>
         <div class="metric">
           <strong>免費優先</strong>
@@ -421,8 +421,97 @@
         </div>
       </section>
 
+      <section id="china-market">
+        <h2>國內市場加分項</h2>
+        <div class="course-grid">
+          <article class="course">
+            <div class="rank">A</div>
+            <div>
+              <h3>阿里云 Clouder：基於百煉平台構建智能體應用</h3>
+              <p>最適合補「Qwen / 通義千問 / 阿里云百煉」這條線。這是國內企業和開發者比較聽得懂的 AI 應用開發證明。</p>
+              <div class="meta">
+                <span class="pill easy">難易度 ★★☆☆☆</span>
+                <span class="pill">2-4 小時</span>
+                <span class="pill">免費優先，Clouder 認證</span>
+              </div>
+            </div>
+            <a class="btn" href="https://edu.aliyun.com/certification/cldd01" target="_blank" rel="noopener">官方認證</a>
+          </article>
+
+          <article class="course">
+            <div class="rank">B</div>
+            <div>
+              <h3>阿里云 VISION 人工智能設計（入門）</h3>
+              <p>偏向 AI 圖像、影片、Wan 視覺大模型、ComfyUI。若朋友那邊課程包含行銷、設計、短影音，這張很好用。</p>
+              <div class="meta">
+                <span class="pill easy">難易度 ★★☆☆☆</span>
+                <span class="pill">6-10 小時</span>
+                <span class="pill">官方頁面標示認證費用 0 元</span>
+              </div>
+            </div>
+            <a class="btn" href="https://edu.aliyun.com/certification/CLDM06" target="_blank" rel="noopener">官方認證</a>
+          </article>
+
+          <article class="course">
+            <div class="rank">C</div>
+            <div>
+              <h3>Kimi 官方幫助中心：長文檔、深度研究、Agent、PPT</h3>
+              <p>Kimi 目前更適合作為「國內 AI 工具實作能力」展示，不是正式證照。建議做出 2 個案例：長文檔摘要、深度研究報告。</p>
+              <div class="meta">
+                <span class="pill easy">難易度 ★★☆☆☆</span>
+                <span class="pill">2-3 小時</span>
+                <span class="pill">官方學習資源，無正式證書</span>
+              </div>
+            </div>
+            <a class="btn" href="https://www.kimi.com/zh-cn/help" target="_blank" rel="noopener">官方中心</a>
+          </article>
+
+          <article class="course">
+            <div class="rank">D</div>
+            <div>
+              <h3>扣子 Coze：智能體、工作流、知識庫應用</h3>
+              <p>這個很適合講「一般人如何做自己的 AI 助理」。建議做一個可展示的客服 bot 或課程助教 bot，會比單純證書更有說服力。</p>
+              <div class="meta">
+                <span class="pill mid">難易度 ★★★☆☆</span>
+                <span class="pill">4-8 小時</span>
+                <span class="pill">平台實作，證書不穩定</span>
+              </div>
+            </div>
+            <a class="btn" href="https://www.coze.cn/overview" target="_blank" rel="noopener">官方平台</a>
+          </article>
+
+          <article class="course">
+            <div class="rank">E</div>
+            <div>
+              <h3>DeepSeek：官方 API 文檔 + 免費證書課補強</h3>
+              <p>DeepSeek 官方比較像模型與 API 文件，不是完整認證體系。若需要證書，可補第三方免費證書課，但履歷上要標明「非官方」。</p>
+              <div class="meta">
+                <span class="pill mid">難易度 ★★★☆☆</span>
+                <span class="pill">2-5 小時</span>
+                <span class="pill">官方文檔 + 第三方免費證書</span>
+              </div>
+            </div>
+            <a class="btn" href="https://api-docs.deepseek.com/" target="_blank" rel="noopener">官方文檔</a>
+          </article>
+
+          <article class="course">
+            <div class="rank">F</div>
+            <div>
+              <h3>Manus Academy: Manus Fundamentals</h3>
+              <p>Manus 是「AI 代理完成任務」的代表。建議做成試講案例：讓 Manus 產出研究、簡報、網頁，再講解你怎麼拆任務。</p>
+              <div class="meta">
+                <span class="pill mid">難易度 ★★★☆☆</span>
+                <span class="pill">2 小時</span>
+                <span class="pill">官方學院課程，證書依平台規則</span>
+              </div>
+            </div>
+            <a class="btn" href="https://academy.manus.im/learn/manus-fundamentals-68d559612e2bdfc6f21d9f91" target="_blank" rel="noopener">官方課程</a>
+          </article>
+        </div>
+      </section>
+
       <section id="plan">
-        <h2>四週學習計畫</h2>
+        <h2>五週學習計畫</h2>
         <div class="plan">
           <article class="week">
             <h3>第 1 週：先拿看得到的證明</h3>
@@ -451,9 +540,17 @@
           <article class="week">
             <h3>第 4 週：依職缺方向加強</h3>
             <ul>
-              <li>商務 AI 課：補 AWS Skill Builder / AWS Educate</li>
-              <li>技術 AI 課：補 NVIDIA DLI</li>
-              <li>需要正式證照：再考慮 Azure AI 或 AWS AI Practitioner</li>
+              <li>國內市場優先：阿里云百煉智能體 Clouder</li>
+              <li>行銷設計課：阿里云 VISION AI 設計</li>
+              <li>整理一份 Qwen / Kimi / Coze 的工具比較表</li>
+            </ul>
+          </article>
+          <article class="week">
+            <h3>第 5 週：做出可試講作品</h3>
+            <ul>
+              <li>用 Kimi 做長文檔摘要與深度研究</li>
+              <li>用扣子做一個客服或課程助教 bot</li>
+              <li>用 Manus 做研究到簡報或網頁的完整任務</li>
             </ul>
           </article>
         </div>
@@ -461,14 +558,14 @@
 
       <section>
         <div class="note">
-          <p><strong>最務實組合：</strong>Google Introduction to Generative AI、Google Beginner GenAI Learning Path、IBM Artificial Intelligence Fundamentals、Google Prompt Design in Vertex AI。大約 2-3 週，每週 5 小時左右，就能先組出一套「Google + IBM」的國際平台證明。</p>
+          <p><strong>最務實組合：</strong>Google Introduction to Generative AI、IBM Artificial Intelligence Fundamentals、阿里云百煉智能體 Clouder、阿里云 VISION AI 設計，再加上 Kimi / Coze / Manus 各做一個可展示案例。這樣比較像真正能上課的人，而不是只有證書的人。</p>
         </div>
       </section>
     </div>
   </main>
 
   <footer>
-    <div class="wrap">資料依 2026-05-29 查詢官方頁面整理。課程價格、badge 規則與可用 credits 可能變動，報名前請以官方頁面為準。</div>
+    <div class="wrap">資料依 2026-05-30 查詢官方頁面整理。課程價格、badge 規則、證書規則與可用 credits 可能變動，報名前請以官方頁面為準。</div>
   </footer>
 </body>
 </html>
