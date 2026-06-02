@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>設計師的陀螺大賽</title>
+  <meta name="description" content="2026/06/03 設計師的陀螺大賽，室內設計師們一起用戰鬥陀螺交流對戰。">
+  <style>
+    :root {
+      --ink: #141414;
+      --muted: #646464;
+      --line: #ded8cc;
+      --paper: #f6f1e7;
+      --panel: #fffdf8;
+      --gold: #c99b40;
+      --red: #d9372f;
+      --blue: #2369c9;
+      --shadow: 0 18px 44px rgba(20, 20, 20, .14);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(201, 155, 64, .22), transparent 34rem),
+        linear-gradient(180deg, #fbf8f1 0%, var(--paper) 45%, #f4f5f5 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.75;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 26px 0 34px;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 680px;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #111;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card img {
+      height: 100%;
+      min-height: 680px;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: clamp(22px, 4vw, 46px);
+      background: linear-gradient(180deg, rgba(0,0,0,.04) 20%, rgba(0,0,0,.72) 100%);
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      color: #fff;
+      text-shadow: 0 2px 20px rgba(0,0,0,.55);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      margin: 0 0 12px;
+      padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 92px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 14px 0 0;
+      font-size: clamp(18px, 2.4vw, 27px);
+      font-weight: 800;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 18px 0 34px;
+    }
+
+    .meta,
+    .card,
+    .photo-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 253, 248, .92);
+      box-shadow: 0 10px 26px rgba(20,20,20,.08);
+    }
+
+    .meta {
+      padding: 18px;
+    }
+
+    .label {
+      margin: 0 0 4px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .value {
+      margin: 0;
+      font-size: 19px;
+      font-weight: 900;
+      line-height: 1.45;
+    }
+
+    main {
+      padding-bottom: 54px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .span-12 { grid-column: span 12; }
+    .span-7 { grid-column: span 7; }
+    .span-6 { grid-column: span 6; }
+    .span-5 { grid-column: span 5; }
+
+    .card {
+      padding: clamp(20px, 3vw, 30px);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.22;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    p { margin: 0; }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
+    li + li { margin-top: 9px; }
+
+    .lead {
+      color: #2d2d2d;
+      font-size: 20px;
+      font-weight: 750;
+    }
+
+    .schedule {
+      display: grid;
+      gap: 0;
+    }
+
+    .slot {
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      gap: 14px;
+      padding: 13px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .slot:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .time {
+      color: #184f9c;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .pill-list li {
+      margin: 0;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f0eadc;
+      font-weight: 850;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .photo-card {
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .photo-card img {
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .photo-card.tall img {
+      aspect-ratio: 3 / 4;
+    }
+
+    .caption {
+      padding: 12px 14px 14px;
+      color: #333;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .prizes {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      list-style: none;
+      counter-reset: prize;
+    }
+
+    .prizes li {
+      counter-increment: prize;
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 10px;
+      align-items: start;
+      margin: 0;
+      font-weight: 780;
+    }
+
+    .prizes li::before {
+      content: counter(prize);
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--ink);
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .note {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--gold);
+      border-radius: 8px;
+      background: #fff7df;
+      color: #4b3714;
+      font-weight: 820;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      margin-top: 18px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--ink);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    footer {
+      padding: 26px 0 42px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .hero-card,
+      .hero-card img {
+        min-height: 520px;
+      }
+
+      .meta-grid,
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .span-12,
+      .span-7,
+      .span-6,
+      .span-5 {
+        grid-column: span 12;
+      }
+
+      .slot {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <section class="hero-card" aria-label="設計師的陀螺大賽主視覺">
+        <img src="assets/hero-designer-beyblade.jpg" alt="設計師的陀螺大賽主視覺">
+        <div class="hero-overlay">
+          <div class="hero-copy">
+            <p class="eyebrow">2026 / 06 / 03</p>
+            <h1>設計師的陀螺大賽</h1>
+            <p class="subtitle">室內設計師們的戰鬥陀螺同好會，用對戰認識彼此，也順便看看誰的配置最有美感。</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="meta-grid">
+        <div class="meta">
+          <p class="label">時間</p>
+          <p class="value">6 月 3 日（三）<br>14:00 - 20:30</p>
+        </div>
+        <div class="meta">
+          <p class="label">地點</p>
+          <p class="value">台北市敦化南路二段 104 號 12-2 樓</p>
+        </div>
+        <div class="meta">
+          <p class="label">主旨</p>
+          <p class="value">藉由對戰來認識戰鬥陀螺吧！</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="grid">
+      <section class="card span-7">
+        <h2>活動流程</h2>
+        <div class="schedule">
+          <div class="slot">
+            <div class="time">14:00 - 17:00</div>
+            <div>戰鬥陀螺介紹、現場試打體驗（第一屆階段）</div>
+          </div>
+          <div class="slot">
+            <div class="time">17:00 - 18:30</div>
+            <div>自由體驗賽（第二階段，可中途進入）</div>
+          </div>
+          <div class="slot">
+            <div class="time">18:30 - 19:00</div>
+            <div>Pizza、決賽、敗部復活、總決賽、頒獎結束</div>
+          </div>
+          <div class="slot">
+            <div class="time">19:00 - 20:30</div>
+            <div>自由交流時間（第三階段）</div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="card span-5">
+        <h2>不用自備，現場很夠玩</h2>
+        <p class="lead">場地提供陀螺與對戰設備，有自己的陀螺也可以帶來。</p>
+        <ul class="pill-list" style="margin-top:16px">
+          <li>正常盤 x 3</li>
+          <li>電動盤 x 2</li>
+          <li>無限盤 x 1</li>
+          <li>三人對戰盤 x 1</li>
+          <li>飛龍盤 x 1</li>
+        </ul>
+        <a class="button" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8C%97%E5%B8%82%E6%95%A6%E5%8C%96%E5%8D%97%E8%B7%AF%E4%BA%8C%E6%AE%B5104%E8%99%9F12-2%E6%A8%93">開啟地圖</a>
+      </aside>
+
+      <section class="card span-12">
+        <h2>現場設備與獎品</h2>
+        <div class="photo-grid">
+          <figure class="photo-card">
+            <img src="assets/table-display.jpg" alt="陀螺展示桌、戰鬥盒與對戰盤">
+            <figcaption class="caption">展示桌、戰鬥盒、對戰盤和大量陀螺。</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="assets/prizes-boxes.jpg" alt="戰鬥盒與自選陀螺獎品">
+            <figcaption class="caption">前三名戰鬥盒與自選陀螺獎品。</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="assets/venue-equipment.jpg" alt="現場設備箱與大型對戰盤">
+            <figcaption class="caption">現場設備已備好，不用空手焦慮。</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="assets/battle-cases.jpg" alt="比賽用對戰盒">
+            <figcaption class="caption">對戰盒與編號配置，現場可以直接抽組。</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="assets/launchers.jpg" alt="戰鬥陀螺發射器">
+            <figcaption class="caption">各式發射器，入門玩家也能直接體驗。</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="assets/scorecard.jpg" alt="戰鬥陀螺計分卡">
+            <figcaption class="caption">計分卡與星星機制，打到最後看誰留下來。</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="card span-7">
+        <h2>比賽辦法</h2>
+        <ol>
+          <li>現場提供對戰盒。初始每人盲抽 3 顆陀螺，不被看見，自行找對手對戰。</li>
+          <li>戰鬥結束後，可以拋棄手中較弱的陀螺，換一次盲抽；也可以在被拋棄的陀螺區拋棄一顆，再盲抽 3 顆一次。</li>
+          <li>每人 12 顆星星，輸光後進入敗組。最終小星星最多者前 3 人進入決賽，第 4 名進入附加賽。</li>
+          <li>夜光星最多者前 3 名，以三人盤決出勝者，進入附加決賽。</li>
+          <li>對戰方式由猜拳決定賽制。</li>
+        </ol>
+      </section>
+
+      <section class="card span-5">
+        <h2>比賽獎品</h2>
+        <ol class="prizes">
+          <li>金色戰鬥盒 / 自選陀螺</li>
+          <li>紫白戰鬥盒 / 自選陀螺</li>
+          <li>黑紫戰鬥盒 / 自選陀螺</li>
+          <li>第 4 - 9 名依星數順序自選陀螺</li>
+          <li>第 10 名之後自選扭蛋</li>
+        </ol>
+        <p class="note">獎品與賽制細節以主辦單位現場公告為準。</p>
+      </section>
+
+      <section class="card span-12">
+        <h2>對戰方式</h2>
+        <ol>
+          <li>正常比賽制：照對戰盒排列順序，三顆陀螺各比一次，先得 4 分者勝。</li>
+          <li>三戰兩勝制：互相盲抽對手單顆陀螺，得 4 分得一勝，二勝結束。</li>
+          <li>可與對手約不同盤型戰鬥。</li>
+        </ol>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">設計師的陀螺大賽｜第一屆陀螺同好會</div>
+  </footer>
+</body>
+</html>
